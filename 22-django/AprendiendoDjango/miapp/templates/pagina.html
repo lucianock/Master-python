@@ -1,18 +1,15 @@
 {% extends 'layout.html' %}
 {% load filters %}
 
-{% block title %}
-Pagina de pruebas
-{% endblock %}
+{% block title %} Página de pruebas {% endblock %}
 
 {% block content %}
-<h1 class="title">Pagina de mi web</h1>
-<p>
-    {{"Creada por Luciano ñññ"|cut:"ñ"}}
-</p>
+
+<h1 class="title">Página de mi web</h1>
+<p>{{ "Creado por Víctor Robles ñññ"|cut:"ñ" }}</p>
 
 <p>
-    {{texto|default:'no hay nada'}}
+    {{texto|default:"no hay nada"}}
 </p>
 
 <p>
@@ -24,17 +21,17 @@ Pagina de pruebas
 </p>
 
 <p>
-    {{'texto pruebas'|length}}
+    {{"texto pruebas"|length}}
 </p>
 
 <p>
-    {{'texto pruebas'|lower}}
+    {{"texTo Pruebas"|lower}}
 </p>
 
 <p>
-    {{"<h1>texto</h1> <strong>Pruebas</strong> hola <p>mundo </p>"|striptags|wordcount}}
+    {{"<h1>texTo</h1> <strong>Pruebas</strong> hola <p> mundo </p>"|striptags|wordcount}}
 </p>
 
-{{"Luciano Campos Kriegl" | saludo | safe}}
+{{"Victor"|saludo|safe}}
 
-{% endblock %}
+{% endblock%}
