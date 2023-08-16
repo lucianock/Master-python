@@ -2,33 +2,35 @@
 
 {% block title %} {{title}} {% endblock %}
 
-
 {% block content %}
 
-<!-- Esto es un comentario en HTML -->
-{% comment 'Nota para el comentario' %}
-    <h1>Hola hola hola</h1>
+<!-- Esto es un comentario en html-->
+{% comment "Y esto es uno en django" %}
 {% endcomment %}
+
 
 <h1 class="title">{{title}}</h1>
 
-<p>{{mi_variable}}</p>
+{{mi_variable}}
 
-{% if nombre and nombre == 'Víctor Robles'%}
+{% if nombre and nombre == 'Luciano Campos Kriegl' %}
     <p>{{nombre}}</p>
 {% else %}
-    <strong>El nombre no existe o no coincide</strong>
+    <strong>
+    <p>El nombre no existe o no coincide</p>
+    </strong>
 {% endif %}
-
-<h3>Listado de lenguajes de programación:</h3>
+<h3> Listado de lenguajes de programación </h3>
 <ul>
-    {% for lenguaje in lenguajes %}
-        <li>{{forloop.counter}}. {{lenguaje}} </li>
+    {% for lenguaje in lenguajes  %}   
+        <li>{{forloop.counter}} {{lenguaje}}</li>
     {% empty %}
-        <p>NO HAY LENGUAJES QUE MOSTRAR</p>
+        <strong>No hay lenguajes que mostrar </strong>
     {% endfor %}
 </ul>
 
-{% include 'fecha-actual.html' with saludo="Hola Mundo desde plantilla" %}
+{% include 'fecha-actual.html' with saludo='Hola Mundo desde plantilla:' %}
 
 {% endblock %}
+
+

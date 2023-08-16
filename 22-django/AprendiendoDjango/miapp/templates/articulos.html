@@ -1,45 +1,31 @@
 {% extends 'layout.html' %}
+{% load filters %}
 
-{% block title %} Listado de artículos {% endblock %}
+{% block title %}
+Listado de articulos 
+{% endblock %}
 
 {% block content %}
+<h1 class="title">Listado de articulos</h1>
 
-<h1 class="title">Listado de artículos</h1>
-
-{% if messages %}
-    {% for message in messages %}
-        <div class="message">
-            {{message}}
-        </div>
-    {% endfor %}
-{% endif %}
-
-  
+    <ul>
         {% for articulo in articulos %}
-            <article class="article-item">
+        
+        <li>
+            <h4>{{articulo.id}}.{{articulo.title}}</h4>
+            <span>{{articulo.created_at}}</span>
+          
+            {% if articulo.public %}
+                <strong>Publico</strong>
+            {% else %}
+                <strong>Privado</strong>
+            {% endif %}
 
-                {% if articulo.image != 'null' and articulo.image.url|length >= 1 %}
-                    
-                    <div class="image">
-                        <img src="{{articulo.image.url}}" />
-                    </div>
-
-                {% endif %}
-
-                <div class="data">
-                    <h2>{{articulo.title}}</h2>
-                    <span class="date">{{articulo.created_at}}</span>
-                    
-                    <p>
-                        {{articulo.content}}
-
-                        <a href="{% url 'borrar' id=articulo.id %}" class="btn btn-delete">Eliminar</a>
-                    </p>
-                </div>
-                
-                <div class="clearfix"></div>
-            </article>
-        {% endfor %}
-    
-
-{% endblock%}
+            <p>{{articulo.content}} </br>
+            <a href="{% url 'borrar' articulo.id %}">Eliminar</a>
+            </p> 
+        </br>
+        </li>
+            {% endfor %}
+    </ul>
+{% endblock %}
