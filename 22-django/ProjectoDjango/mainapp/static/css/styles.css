@@ -200,6 +200,17 @@ hr{
     margin-top: 5px;
 }
 
+.date{
+    margin-top: 15px;
+    margin-bottom:15px;
+    display: block;
+    color: gray;
+}
+
+.content{
+    line-height: 25px;
+}
+
 footer{
     width: 1250px;
     background-color:#1B1E1F;
